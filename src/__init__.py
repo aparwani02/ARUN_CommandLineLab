@@ -8,3 +8,6 @@ def oneArgument(arg):
 
 def multiArgument(args):
 	pass
+
+if __name__ == '__main__':
+    unittest.main()
