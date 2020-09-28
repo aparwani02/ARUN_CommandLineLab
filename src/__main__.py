@@ -1,15 +1,16 @@
 import sys
 from __init__ import *
 
-if __name__ == '__main__':
-	if len(sys.argv) - 1 == 0:
+def main(args):
+	if len(sys.argv) == 1:
 		string = noArgument()
 		print(string)
-	elif len(sys.argv) - 1 == 1:
-		string = oneArgument(sys.argv)
+	elif len(sys.argv) == 2:
+		string = oneArgument(args[1])
 		print(string)
-	else:
+	elif len(sys.argv) > 2:
 		string = multiArgument(sys.argv)
 		print(string)
 
-
+if __name__ == '__main__':
+	main(sys.argv)

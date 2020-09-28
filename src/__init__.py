@@ -1,29 +1,23 @@
-import sys
+from collections import Counter
 
 def noArgument(): #if there are no arguments in the command line, output the usage text
-	print ("This program  accepts a varying number of command-line arguments and preforms actions based on the number of arguments provided.")
-	print ("If you input zero arguments, the program will output this usage text.")
-	print ("If you input one argument, the program will output whether the argument is even, odd, or not an integer.")
-	print ("If you input more than one argument, the program will output the number of c's (case insensitive) in the arguments.")
+	return ("This program accepts a varying number of command-line arguments and preforms actions based on the number of arguments provided. If you input zero arguments, the program will output this usage text. If you input one argument, the program will output whether the argument is even, odd, or not an integer. If you input more than one argument, the program will output the number of c's (case insensitive) in the arguments.")
 
-def oneArgument(argv): #if there is one argument in the command line, output whether it is even, odd, or not an integer
-	try:
-		num = int(sys.argv[1])
-		if num == 0:
+def oneArgument(parameter): #if there is one argument in the command line, output whether it is even, odd, or not an integer
+	if parameter.isdigit() and (parameter.count(".") == 0):
+		if int(parameter) == 0:
 			return 'Zero'
-		elif num % 2 == 0:
+		elif int(parameter) % 2 == 0:
 			return 'Even'
-		else: 
+		else:
 			return 'Odd'
-	except ValueError:
+	else:
 		return 'Not An Integer'
 
-def multiArgument(argv): #if there are multiple arguments in the command line, output how many c's (uppercase and lowercase) there are
+def multiArgument(parameterArray): #if there are multiple arguments in the command line, output how many c's (uppercase and lowercase) there are
 	cCount = 0
-	for i in (sys.argv[1:]):
-		cCount += i.count('c')
-		cCount += i.count('C')
-	return cCount
-
-if __name__ == '__main__':
-    unittest.main()
+	for i in range(1, len(parameterArray)):
+		# counter = Counter(arr[i].lower())
+		# cCount += counter['c']
+		cCount += parameterArray[i].lower().count("c", 0)
+	return (cCount)
