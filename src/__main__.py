@@ -8,8 +8,8 @@ def main(args):
 	elif len(sys.argv) == 2:
 		string = oneArgument(args[1])
 		print(string)
-	elif len(sys.argv) > 2:
-		string = multiArgument(sys.argv)
+	else:
+		string = multiArgument(args)
 		print(string)
 
 if __name__ == '__main__':

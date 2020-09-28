@@ -1,5 +1,3 @@
-from collections import Counter
-
 def noArgument(): #if there are no arguments in the command line, output the usage text
 	return ("This program accepts a varying number of command-line arguments and preforms actions based on the number of arguments provided. If you input zero arguments, the program will output this usage text. If you input one argument, the program will output whether the argument is even, odd, or not an integer. If you input more than one argument, the program will output the number of c's (case insensitive) in the arguments.")
 
@@ -17,7 +15,5 @@ def oneArgument(parameter): #if there is one argument in the command line, outpu
 def multiArgument(parameterArray): #if there are multiple arguments in the command line, output how many c's (uppercase and lowercase) there are
 	cCount = 0
 	for i in range(1, len(parameterArray)):
-		# counter = Counter(arr[i].lower())
-		# cCount += counter['c']
-		cCount += parameterArray[i].lower().count("c", 0)
-	return (cCount)
+		cCount += parameterArray[i].lower().count("c")
+	return cCount
